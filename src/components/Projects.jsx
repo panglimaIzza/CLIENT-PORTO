@@ -4,9 +4,11 @@ export default function Projects() {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Ambil URL Backend dari .env (opsional, jika hardcode localhost juga tidak apa-apa)
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
     useEffect(() => {
-        // Mengambil data dari Backend Server
-        fetch('http://localhost:5000/api/projects')
+        fetch(`${API_URL}/api/projects`)
             .then(res => res.json())
             .then(data => {
                 setProjects(data);
@@ -38,7 +40,6 @@ export default function Projects() {
                     </h3>
                 </div>
                 
-                {/* Kondisi Loading */}
                 {loading ? (
                     <div className="flex flex-col items-center justify-center h-64 border border-white/5 rounded-2xl bg-[#09090b]">
                         <div className="w-12 h-12 border-4 border-[#10B981]/30 border-t-[#10B981] rounded-full animate-spin mb-4"></div>
@@ -47,52 +48,46 @@ export default function Projects() {
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         
-                        {/* Jika Server Mati / Data Kosong */}
                         {projects.length === 0 && (
                             <div className="col-span-full text-center py-12 border border-dashed border-gray-700 rounded-2xl">
                                 <p className="text-gray-500 font-mono">
                                     [SYSTEM NOTICE]: No project data received.<br/>
-                                    Please ensure backend server (port 5000) is active.
+                                    Please ensure backend server is active.
                                 </p>
                             </div>
                         )}
                         
-                        {/* Mapping Data Project */}
                         {projects.map((project) => (
                             <div 
                                 key={project.id} 
-                                className="group relative bg-[#09090b] border border-white/10 rounded-2xl overflow-hidden hover:border-[#10B981]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(16,185,129,0.2)] flex flex-col"
+                                className="group relative bg-[#09090b] border border-white/10 rounded-2xl overflow-hidden hover:border-[#10B981]/50 transition-all duration-500 flex flex-col h-[350px]"
                             >
-                                {/* Header Card (Terminal Look) */}
-                                <div className="h-2 bg-gradient-to-r from-[#10B981] to-emerald-900 w-full"></div>
-                                <div className="p-6 flex flex-col flex-grow">
-                                    
-                                    {/* Top Icons */}
+                                {/* ==========================
+                                    LAYER 1: KONTEN UTAMA (Visible Default)
+                                   ========================== */}
+                                <div className="p-6 flex flex-col h-full relative z-10 transition-opacity duration-300 group-hover:opacity-0">
+                                    {/* Header Icon */}
                                     <div className="flex justify-between items-start mb-6">
-                                        <div className="p-3 bg-[#18181B] rounded-lg border border-white/5 group-hover:border-[#10B981]/30 transition-colors">
-                                            {/* Folder Icon */}
+                                        <div className="p-3 bg-[#18181B] rounded-lg border border-white/5">
                                             <svg className="w-6 h-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                                             </svg>
                                         </div>
-                                        {/* External Link Icon (Hiasan) */}
-                                        <div className="text-gray-600 group-hover:text-white transition-colors">
+                                        <div className="text-gray-600">
                                              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                             </svg>
                                         </div>
                                     </div>
 
-                                    {/* Title & Desc */}
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#10B981] transition-colors">
+                                    <h3 className="text-xl font-bold text-white mb-3">
                                         {project.title}
                                     </h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                                    <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
                                         {project.description}
                                     </p>
 
-                                    {/* Tech Stack Tags */}
-                                    <div className="border-t border-white/5 pt-4">
+                                    <div className="mt-auto pt-4 border-t border-white/5">
                                         <div className="flex flex-wrap gap-2">
                                             {project.tech.map((t, i) => (
                                                 <span 
@@ -105,6 +100,53 @@ export default function Projects() {
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* ==========================
+                                    LAYER 2: HOVER OVERLAY (Hidden Default)
+                                   ========================== */}
+                                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out bg-[#09090b]">
+                                    
+                                    {/* Gambar Project Background */}
+                                    <img 
+                                        src={project.image || "https://placehold.co/600x400/18181b/10B981?text=No+Image"} 
+                                        alt={project.title} 
+                                        className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                    
+                                    {/* Gradient Overlay biar teks terbaca */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/80 to-transparent"></div>
+
+                                    {/* Content Hover */}
+                                    <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                                        
+                                        <div className="flex gap-3 mt-4">
+                                            {/* Tombol Detail */}
+                                            <a 
+                                                href={project.link || "#"} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="flex-1 bg-[#10B981] text-black font-bold py-2 px-4 rounded-lg text-sm text-center hover:bg-emerald-400 transition-colors"
+                                            >
+                                                View Details
+                                            </a>
+                                            
+                                            {/* Tombol LinkedIn */}
+                                            <a 
+                                                href={project.linkedin || "#"} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-center bg-white text-black w-10 h-10 rounded-lg hover:bg-gray-200 transition-colors"
+                                                title="View on LinkedIn"
+                                            >
+                                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         ))}
                     </div>

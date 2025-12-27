@@ -32,6 +32,7 @@ export default function Certifications() {
       image: cert3,
       link: cert3
     },
+
   ];
 
   return (
@@ -79,7 +80,7 @@ export default function Certifications() {
                     rel="noopener noreferrer"
                     className="px-6 py-2 bg-[#10B981] text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-emerald-400"
                   >
-                    Lihat Asli
+                    View More
                   </a>
                 </div>
               </div>

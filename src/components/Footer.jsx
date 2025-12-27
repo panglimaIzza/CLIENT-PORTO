@@ -75,10 +75,10 @@ export default function Footer() {
 
               {/* 3. TryHackMe (Logo Asli) */}
               <a 
-                href="https://tryhackme.com/p/USERNAME_KAMU" // GANTI USERNAME
+                href="https://tryhackme.com/p/sahaCing" // GANTI USERNAME
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-[#18181B] border border-white/10 hover:border-[#C1272D] hover:bg-[#C1272D]/10 transition-all duration-300 group/thm"
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-[#18181B] border border-white/10 hover:border-[#C1272D] hover:bg-[#C1272D] transition-all duration-300 group/thm"
                 title="TryHackMe"
               >
                 {/* Menggunakan CDN Simple Icons untuk logo presisi */}
@@ -91,7 +91,7 @@ export default function Footer() {
 
               {/* 4. HackerOne (Logo Asli) */}
               <a 
-                href="https://hackerone.com/USERNAME_KAMU" // GANTI USERNAME
+                href="https://hackerone.com/sahaCing" // GANTI USERNAME
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-[#18181B] border border-white/10 hover:border-white hover:bg-white transition-all duration-300 group/h1"
