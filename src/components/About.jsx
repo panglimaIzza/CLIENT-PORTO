@@ -85,7 +85,7 @@ export default function About() {
                   <span className="text-gray-700 w-6 text-right mr-4 select-none">6</span>
                   <p className="pl-4 whitespace-nowrap">
                     <span className="text-sky-300">status</span>:{' '}
-                    <span className="text-[#10B981]">'Student @ Itenas'</span>
+                    <span className="text-[#10B981]">'Student @ Institut Teknologi Nasional'</span>
                   </p>
                 </div>
 
@@ -120,7 +120,7 @@ export default function About() {
                 <span className="text-gray-200 font-medium">Burp Suite</span>.
               </p>
               <p>
-                Saat ini mahasiswa{' '}
+                Saat ini saya seorang mahasiswa di{' '}
                 <strong className="text-gray-200">
                   Institut Teknologi Nasional Bandung
                 </strong>

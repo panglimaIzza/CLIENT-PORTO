@@ -13,7 +13,7 @@ export default function Hero() {
           I am <span className="bg-gradient-to-r from-[#22c55e] to-[#86efac] bg-clip-text text-transparent">Panglima Izzal Haq</span>
         </h1>
         <h2 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-600 mb-8">
-          Full Stack Developer.
+          Cyber Security Enthusiast.
         </h2>
         <div className="flex justify-center gap-4 mt-8">
           <a href="#about" className="px-8 py-3 border-[#10B981] border hover:bg-[#10B981] text-[#10B981] hover:text-black rounded-full font-medium transition-all">

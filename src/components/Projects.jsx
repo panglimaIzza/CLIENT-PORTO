@@ -36,7 +36,7 @@ export default function Projects() {
                         Portfolio
                     </h2>
                     <h3 className="text-3xl md:text-4xl font-bold text-white">
-                        Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-emerald-600">Operations</span>
+                        Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-emerald-600">Project</span>
                     </h3>
                 </div>
                 

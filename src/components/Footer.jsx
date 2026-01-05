@@ -49,7 +49,7 @@ export default function Footer() {
               
               {/* 1. GitHub */}
               <a 
-                href="https://github.com/panglimaizza" // GANTI USERNAME
+                href="https://github.com/panglimaizza" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-[#18181B] border border-white/10 text-gray-400 hover:text-white hover:bg-[#10B981] hover:border-[#10B981] transition-all duration-300"
@@ -62,7 +62,7 @@ export default function Footer() {
 
               {/* 2. LinkedIn */}
               <a 
-                href="https://linkedin.com/in/panglimaizzalhaq" // GANTI USERNAME
+                href="https://linkedin.com/in/panglima-izzal-haq" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-[#18181B] border border-white/10 text-gray-400 hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition-all duration-300"
@@ -75,7 +75,7 @@ export default function Footer() {
 
               {/* 3. TryHackMe (Logo Asli) */}
               <a 
-                href="https://tryhackme.com/p/sahaCing" // GANTI USERNAME
+                href="https://tryhackme.com/p/sahaCing" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-[#18181B] border border-white/10 hover:border-[#C1272D] hover:bg-[#C1272D] transition-all duration-300 group/thm"
