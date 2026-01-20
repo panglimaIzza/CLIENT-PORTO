@@ -5,3 +5,7 @@
 body {
   @apply bg-slate-950 text-slate-300;
 }
+
+html {
+  scroll-behavior: smooth;
+}
