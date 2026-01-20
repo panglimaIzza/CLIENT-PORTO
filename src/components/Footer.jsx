@@ -30,7 +30,7 @@ export default function Footer() {
             
             {/* EMAIL BUTTON */}
             <a 
-              href="mailto:izzalhaq@example.com" // GANTI DENGAN EMAIL ASLI
+              href="mailto:panglimaizza21@gmail.com"
               className="group flex items-center gap-3 bg-[#18181B] border border-white/10 px-6 py-4 rounded-xl hover:border-[#10B981] hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-300 w-full md:w-auto"
             >
               <div className="p-2 bg-[#10B981]/10 rounded-lg group-hover:bg-[#10B981] transition-colors">
